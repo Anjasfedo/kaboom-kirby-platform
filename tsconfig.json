@@ -22,8 +22,7 @@
     // Import
     "baseUrl": ".",
     "paths": {
-      "@src/*": ["src/*"],
-      "@public/*": ["public/*"]
+      "@src/*": ["src/*"]
     }
   },
   "include": ["src"]
