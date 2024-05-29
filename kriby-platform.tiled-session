@@ -1,4 +1,5 @@
 {
+    "activeFile": "public/level-1.json",
     "expandedProjectPaths": [
         "node_modules"
     ],
@@ -16,11 +17,11 @@
             "scaleInDock": 2
         },
         "public/level-1.json": {
-            "scale": 1.1073437499999998,
-            "selectedLayer": 1,
+            "scale": 3,
+            "selectedLayer": 3,
             "viewCenter": {
-                "x": 215.3802737406519,
-                "y": 163.00268096514748
+                "x": 309.8333333333333,
+                "y": 216.5
             }
         },
         "public/level-1.json#kirby-like": {
@@ -31,6 +32,7 @@
     "openFiles": [
         "public/level-1.json"
     ],
+    "project": "kriby-platform.tiled-project",
     "recentFiles": [
         "public/level-1.json",
         "level-1.json"

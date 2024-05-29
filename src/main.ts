@@ -1,4 +1,5 @@
 import { k } from "@src/kaboomCtx";
+import { makeMap } from "@src/utils";
 
 const gameSetup = async () => {
   k.loadSprite("assets", "./kirby-like.png", {
@@ -19,6 +20,11 @@ const gameSetup = async () => {
 
   k.loadSprite("level-1", "./level-1.png");
 
+  const { map: level1Layout, spawnPoint: level1SpawnPoints } = await makeMap(
+    k,
+    "level-1"
+  );
+
   k.scene("level-1", () => {
     k.setGravity(2100);
     k.add([
@@ -26,6 +32,8 @@ const gameSetup = async () => {
       k.color(k.Color.fromHex("#f7d7db")),
       k.fixed(), // make sure the object not effected by camera
     ]);
+
+    k.add(level1Layout)
   });
 
   k.go("level-1");
