@@ -28,7 +28,7 @@
          "name":"background",
          "opacity":1,
          "type":"tilelayer",
-         "visible":true,
+         "visible":false,
          "width":27,
          "x":0,
          "y":0
@@ -59,7 +59,7 @@
          "name":"clouds",
          "opacity":1,
          "type":"tilelayer",
-         "visible":true,
+         "visible":false,
          "width":27,
          "x":0,
          "y":0
@@ -90,7 +90,7 @@
          "name":"platforms",
          "opacity":1,
          "type":"tilelayer",
-         "visible":true,
+         "visible":false,
          "width":27,
          "x":0,
          "y":0
@@ -176,6 +176,17 @@
                  "width":16,
                  "x":320,
                  "y":256
+                }, 
+                {
+                 "height":64,
+                 "id":64,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":80,
+                 "y":208
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -197,20 +208,20 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":25.3333333333333,
-                 "y":267
+                 "x":38.3333333333333,
+                 "y":250.666666666667
                 }, 
                 {
                  "height":0,
                  "id":56,
-                 "name":"flames",
+                 "name":"flame",
                  "point":true,
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":87.6666666666667,
-                 "y":203.666666666667
+                 "x":82.6666666666667,
+                 "y":187.333333333334
                 }, 
                 {
                  "height":0,
@@ -221,8 +232,8 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":262,
-                 "y":234.333333333333
+                 "x":260.333333333333,
+                 "y":219.333333333333
                 }, 
                 {
                  "height":0,
@@ -233,8 +244,8 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":366.666666666667,
-                 "y":126
+                 "x":370.333333333334,
+                 "y":197.666666666667
                 }, 
                 {
                  "height":0,
@@ -245,8 +256,8 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":400.666666666667,
-                 "y":81.3333333333333
+                 "x":399.666666666667,
+                 "y":169.666666666667
                 }, 
                 {
                  "height":0,
@@ -257,8 +268,8 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":420.666666666667,
-                 "y":158.666666666667
+                 "x":419,
+                 "y":215.333333333334
                 }, 
                 {
                  "height":0,
@@ -279,7 +290,7 @@
          "y":0
         }],
  "nextlayerid":7,
- "nextobjectid":64,
+ "nextobjectid":65,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.10.2",
