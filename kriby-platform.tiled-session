@@ -18,10 +18,10 @@
         },
         "public/level-1.json": {
             "scale": 3,
-            "selectedLayer": 3,
+            "selectedLayer": 4,
             "viewCenter": {
-                "x": 309.8333333333333,
-                "y": 216.5
+                "x": 1.1666666666666572,
+                "y": 285.16666666666663
             }
         },
         "public/level-1.json#kirby-like": {

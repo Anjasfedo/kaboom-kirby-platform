@@ -28,7 +28,7 @@
          "name":"background",
          "opacity":1,
          "type":"tilelayer",
-         "visible":true,
+         "visible":false,
          "width":27,
          "x":0,
          "y":0
@@ -59,7 +59,7 @@
          "name":"clouds",
          "opacity":1,
          "type":"tilelayer",
-         "visible":true,
+         "visible":false,
          "width":27,
          "x":0,
          "y":0
@@ -90,7 +90,7 @@
          "name":"platforms",
          "opacity":1,
          "type":"tilelayer",
-         "visible":true,
+         "visible":false,
          "width":27,
          "x":0,
          "y":0
@@ -176,6 +176,17 @@
                  "width":16,
                  "x":320,
                  "y":256
+                }, 
+                {
+                 "height":64,
+                 "id":64,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":80,
+                 "y":208
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -197,8 +208,8 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":25.3333333333333,
-                 "y":267
+                 "x":38.3333333333333,
+                 "y":250.666666666667
                 }, 
                 {
                  "height":0,
@@ -279,7 +290,7 @@
          "y":0
         }],
  "nextlayerid":7,
- "nextobjectid":64,
+ "nextobjectid":65,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.10.2",
