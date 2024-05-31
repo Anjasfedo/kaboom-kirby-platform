@@ -20,7 +20,7 @@ const gameSetup = async () => {
 
   k.loadSprite("level-1", "./level-1.png");
 
-  const { map: level1Layout, spawnPoint: level1SpawnPoints } = await makeMap(
+  const { map: level1Layout, spawnPoints: level1SpawnPoints } = await makeMap(
     k,
     "level-1"
   );
