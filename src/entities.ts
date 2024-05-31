@@ -176,7 +176,7 @@ export const setControls = (k: KaboomCtx, player: PlayerGameObj) => {
             }),
             k.area({ shape: new k.Rect(k.vec2(5, 4), 6, 6) }),
             k.pos(
-              player.direction === "false"
+              player.direction === "left"
                 ? player.pos.x - 80
                 : player.pos.x + 80,
               player.pos.y + 5
@@ -198,7 +198,7 @@ export const setControls = (k: KaboomCtx, player: PlayerGameObj) => {
             player.play("kirbIdle");
           });
 
-          return;
+          break;
         }
 
         inhaleEffectRef.opacity = 0;
@@ -322,4 +322,29 @@ export const makeGuyEnemy = (k: KaboomCtx, posX: number, posY: number) => {
   });
 
   return guy;
+};
+
+export const makeBirdEnemy = (
+  k: KaboomCtx,
+  posX: number,
+  posY: number,
+  speed: number
+) => {
+  const bird = k.add([
+    k.sprite("assets", { anim: "bird" }),
+    k.scale(SCALE),
+    k.pos(posX * SCALE, posY * SCALE),
+    k.area({
+      shape: new k.Rect(k.vec2(4, 2), 8, 10),
+      collisionIgnore: ["enemy"],
+    }),
+    k.body({ isStatic: true }),
+    k.move(k.LEFT, speed),
+    k.offscreen({ destroy: true, distance: 400 }),
+    "enemy",
+  ]);
+
+  makeInhalable(k, bird);
+
+  return bird;
 };

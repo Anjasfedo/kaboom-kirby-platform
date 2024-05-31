@@ -1,6 +1,7 @@
 import { k } from "@src/kaboomCtx";
 import { makeMap } from "@src/utils";
 import {
+  makeBirdEnemy,
   makeFlameEnemy,
   makeGuyEnemy,
   makePlayer,
@@ -64,6 +65,19 @@ const gameSetup = async () => {
 
     for (const guy of level1SpawnPoints.guy) {
       makeGuyEnemy(k, guy.x, guy.y);
+    }
+
+    for (const bird of level1SpawnPoints.bird) {
+      const speeds = [100, 200, 300];
+
+      k.loop(10, () => {
+        makeBirdEnemy(
+          k,
+          bird.x,
+          bird.y,
+          speeds[Math.floor(Math.random() * speeds.length)]
+        );
+      });
     }
   });
 
