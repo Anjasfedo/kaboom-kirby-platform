@@ -1,6 +1,6 @@
 import { k } from "@src/kaboomCtx";
 import { makeMap } from "@src/utils";
-import { makePlayer, setControls } from "@src/entities";
+import { makeFlameEnemy, makePlayer, setControls } from "@src/entities";
 
 const gameSetup = async () => {
   k.loadSprite("assets", "./kirby-like.png", {
@@ -42,7 +42,7 @@ const gameSetup = async () => {
       level1SpawnPoints.player[0].y
     );
 
-    setControls(k, kirb)
+    setControls(k, kirb);
     k.add(kirb);
 
     k.camScale(0.7, 0.7);
@@ -52,6 +52,10 @@ const gameSetup = async () => {
         k.camPos(kirb.pos.x + 500, 870);
       }
     });
+
+    for (const flame of level1SpawnPoints.flame) {
+      makeFlameEnemy(k, flame.x, flame.y);
+    }
   });
 
   k.go("level-1");
