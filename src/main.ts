@@ -1,5 +1,6 @@
 import { k } from "@src/kaboomCtx";
 import { makeMap } from "@src/utils";
+import { makePlayer } from "@src/entities";
 
 const gameSetup = async () => {
   k.loadSprite("assets", "./kirby-like.png", {
@@ -33,7 +34,23 @@ const gameSetup = async () => {
       k.fixed(), // make sure the object not effected by camera
     ]);
 
-    k.add(level1Layout)
+    k.add(level1Layout);
+
+    const kirb = makePlayer(
+      k,
+      level1SpawnPoints.player[0].x,
+      level1SpawnPoints.player[0].y
+    );
+
+    k.add(kirb);
+
+    k.camScale(0.7, 0.7)
+    
+    k.onUpdate(() => {
+      if (kirb.pos.x < level1Layout.pos.x + 432) {
+        k.camPos(kirb.pos.x + 500, 800)
+      }
+    })
   });
 
   k.go("level-1");
