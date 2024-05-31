@@ -150,4 +150,63 @@ export const setControls = (k: KaboomCtx, player: PlayerGameObj) => {
         break;
     }
   });
+
+  k.onKeyPress((key) => {
+    switch (key) {
+      case "x":
+        player.doubleJump();
+        break;
+      case "space":
+        player.doubleJump();
+        break;
+      default:
+        break;
+    }
+  });
+
+  k.onKeyRelease((key) => {
+    switch (key) {
+      case "z":
+        if (player.isFull) {
+          player.play("kirbInhaling");
+          const shootingStar = k.add([
+            k.sprite("assets", {
+              anim: "shootingStar",
+              flipX: player.direction === "right",
+            }),
+            k.area({ shape: new k.Rect(k.vec2(5, 4), 6, 6) }),
+            k.pos(
+              player.direction === "false"
+                ? player.pos.x - 80
+                : player.pos.x + 80,
+              player.pos.y + 5
+            ),
+            k.scale(SCALE),
+            player.direction === "left"
+              ? k.move(k.LEFT, 800)
+              : k.move(k.RIGHT, 800),
+            "shootingStar",
+          ]);
+
+          shootingStar.onCollide("platform", () => {
+            k.destroy(shootingStar);
+          });
+
+          player.isFull = false;
+
+          k.wait(1, () => {
+            player.play("kirbIdle");
+          });
+
+          return;
+        }
+
+        inhaleEffectRef.opacity = 0;
+        player.isInhaling = false;
+        player.play("kirbIdle");
+        break;
+      default:
+        break;
+    }
+  });
 };
