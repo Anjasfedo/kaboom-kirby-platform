@@ -250,6 +250,9 @@ export const makeFlameEnemy = (k: KaboomCtx, posX: number, posY: number) => {
     }),
     k.body(),
     k.state("idle", ["idle", "jump"]),
+    {
+      isInhalable: false,
+    },
     "enemy",
   ]);
 
@@ -271,4 +274,52 @@ export const makeFlameEnemy = (k: KaboomCtx, posX: number, posY: number) => {
   });
 
   return flame;
+};
+
+export const makeGuyEnemy = (k: KaboomCtx, posX: number, posY: number) => {
+  const guy = k.add([
+    k.sprite("assets", { anim: "guyWalk" }),
+    k.scale(SCALE),
+    k.pos(posX * SCALE, posY * SCALE),
+    k.area({
+      shape: new k.Rect(k.vec2(4, 6), 8, 10),
+      collisionIgnore: ["enemy"],
+    }),
+    k.body(),
+    k.state("idle", ["idle", "left", "right"]),
+    {
+      isInhalable: false,
+      speed: 100,
+    },
+    "enemy",
+  ]);
+
+  makeInhalable(k, guy);
+
+  guy.onStateEnter("idle", async () => {
+    await k.wait(1);
+    guy.enterState("left");
+  });
+
+  guy.onStateEnter("left", async () => {
+    guy.flipX = false;
+    await k.wait(2);
+    guy.enterState("right");
+  });
+
+  guy.onStateUpdate("left", async () => {
+    guy.move(-guy.speed, 0);
+  });
+
+  guy.onStateEnter("right", async () => {
+    guy.flipX = true;
+    await k.wait(2);
+    guy.enterState("left");
+  });
+
+  guy.onStateUpdate("right", async () => {
+    guy.move(guy.speed, 0);
+  });
+
+  return guy;
 };

@@ -1,6 +1,11 @@
 import { k } from "@src/kaboomCtx";
 import { makeMap } from "@src/utils";
-import { makeFlameEnemy, makePlayer, setControls } from "@src/entities";
+import {
+  makeFlameEnemy,
+  makeGuyEnemy,
+  makePlayer,
+  setControls,
+} from "@src/entities";
 
 const gameSetup = async () => {
   k.loadSprite("assets", "./kirby-like.png", {
@@ -55,6 +60,10 @@ const gameSetup = async () => {
 
     for (const flame of level1SpawnPoints.flame) {
       makeFlameEnemy(k, flame.x, flame.y);
+    }
+
+    for (const guy of level1SpawnPoints.guy) {
+      makeGuyEnemy(k, guy.x, guy.y);
     }
   });
 
